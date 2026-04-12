@@ -35,7 +35,7 @@ jobs:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -46,7 +46,7 @@ jobs:
           java-version: '21'
 
       - name: cache gradle dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.gradle/caches
           key: gradle-${{ runner.os }}-${{ hashFiles('/*.gradle*', '/gradle-wrapper.properties') }}
@@ -54,7 +54,7 @@ jobs:
             gradle-${{ runner.os }}-
 
       - name: cache gradle wrapper
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.gradle/wrapper
           key: gradle-wrapper-${{ runner.os }}-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }}
@@ -69,7 +69,7 @@ jobs:
         run: ./gradlew assembleDebug
 
       - name: upload artifacts to outputs
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           path: |
             app/build/outputs/apk
