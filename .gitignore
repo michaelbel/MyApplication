@@ -1,8 +1,7 @@
-.kotlin
+.claude
 .gradle
 .idea
+!.idea/icon.svg
+.kotlin
 build
-build-cache
-generated
 local.properties
-.claude
